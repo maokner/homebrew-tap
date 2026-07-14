@@ -12,10 +12,12 @@ cask "buoy" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
   depends_on arch: :arm64
 
   app "Buoy.app"
+
+  zap trash: "~/Library/Preferences/com.maokner.Buoy.plist"
 
   caveats <<~EOS
     Buoy is open source but not notarized (no paid Apple Developer account).
@@ -27,8 +29,4 @@ cask "buoy" do
     Buoy will ask for Screen Recording (the mirror is a window capture)
     and, for pin-in-place, Accessibility. Nothing leaves your Mac.
   EOS
-
-  zap trash: [
-    "~/Library/Preferences/com.maokner.Buoy.plist",
-  ]
 end
