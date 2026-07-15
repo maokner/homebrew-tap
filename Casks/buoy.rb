@@ -1,6 +1,6 @@
 cask "buoy" do
-  version "0.2.0"
-  sha256 "8c0a40f2122f0c1ee87635bdedd35c1715402eb845f17da2f0679d4e91ad95a5"
+  version "0.2.1"
+  sha256 "046dc21da527b9884c27c550106b98a10ab1f469374dc5c0ac0bf73a82ab753c"
 
   url "https://github.com/maokner/Buoy/releases/download/v#{version}/Buoy.dmg"
   name "Buoy"
