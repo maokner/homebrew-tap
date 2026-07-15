@@ -17,6 +17,15 @@ cask "buoy" do
 
   app "Buoy.app"
 
+  # Buoy is signed but not notarized (no paid Apple Developer account), so a
+  # quarantined first launch would hit the Gatekeeper wall. Clear quarantine on
+  # install so the app opens straight to its permission primer.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Buoy.app"],
+                   sudo: false
+  end
+
   zap trash: "~/Library/Preferences/com.maokner.Buoy.plist"
 
   caveats <<~EOS
