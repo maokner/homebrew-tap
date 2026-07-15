@@ -20,13 +20,12 @@ cask "buoy" do
   zap trash: "~/Library/Preferences/com.maokner.Buoy.plist"
 
   caveats <<~EOS
-    Buoy is open source but not notarized (no paid Apple Developer account).
-    If macOS blocks the first launch, allow it under
-    System Settings -> Privacy & Security -> Open Anyway,
-    or install without the quarantine flag:
-      brew install --cask buoy --no-quarantine
+    Buoy is open source and unsigned. If macOS blocks the first launch,
+    allow it in System Settings -> Privacy & Security -> Open Anyway.
+    To skip that, install with:
+      HOMEBREW_CASK_OPTS="--no-quarantine" brew install --cask maokner/tap/buoy
 
-    Buoy will ask for Screen Recording (the mirror is a window capture)
-    and, for pin-in-place, Accessibility. Nothing leaves your Mac.
+    On first launch Buoy asks for Screen Recording, and for Accessibility
+    when you pin in place. Nothing leaves your Mac.
   EOS
 end
